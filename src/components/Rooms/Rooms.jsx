@@ -3,7 +3,7 @@ import "./Rooms.scss";
 const Rooms = (props) => {
     const { currentUser } = props;
 
-    const onSubmit = () => {
+    const onCreateRoomSubmit = () => {
 
     }
 
@@ -12,7 +12,7 @@ const Rooms = (props) => {
             
             <div className="rooms">
                 <p>{currentUser !== "" ? `Currently logged in as ${currentUser}` : "Please login on the user page"}</p>
-                <form onSubmit={onSubmit} className="rooms__form">
+                <form onSubmit={onCreateRoomSubmit} className="rooms__form">
                     <h2 className="rooms__form-title">Create new room</h2>
                     <input className="form-input" type="number" name="roomNumber" min="0" placeholder="Enter room number"/>
                     <input className="form-input" type="text" name="description" placeholder="Enter room description" />
