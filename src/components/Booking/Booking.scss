@@ -1,0 +1,11 @@
+@use "../../assets/styles/base/variables.scss" as *;
+
+.bookings {
+    padding: $general-padding;
+    margin: $general-margin;
+    &__form{
+        display: flex;
+        flex-direction: column;
+        row-gap: $form-gap;
+    }
+}

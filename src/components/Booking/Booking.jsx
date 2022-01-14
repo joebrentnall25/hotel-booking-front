@@ -1,3 +1,5 @@
+import "./Booking.scss";
+
 const Booking = (props) => {
     const { currentUser } = props; 
     const rooms = [
@@ -38,6 +40,7 @@ const Booking = (props) => {
         <>
             <section className="bookings">
                 <form onSubmit={onSubmit} className="bookings__form">
+                    <h2>Create new booking</h2>
                     <select name="roomId" id="">
                         {populateRooms()}
                     </select>
