@@ -1,5 +1,7 @@
+@use "../../assets/styles/base/variables.scss" as *;
+
 .nav {
-    background-color: grey;
+    background-color: $primary-color;
     &__links {
         display: flex;
         justify-content: space-around;
@@ -8,8 +10,8 @@
             &-item {
                 margin: 2rem;
                 float: left;
-                color: white;
                 &-a {
+                    font-weight: 800;
                     color: white;
                     text-decoration: none;
                     display: inline-block;

@@ -39,15 +39,17 @@ const Booking = (props) => {
     return (
         <>
             <section className="bookings">
+            <p>{currentUser !== "" ? `Currently logged in as ${currentUser}` : "Please login on the user page"}</p>
                 <form onSubmit={onSubmit} className="bookings__form">
                     <h2>Create new booking</h2>
-                    <select name="roomId" id="">
+                    <select className="form-input" name="roomId" id="" defaultValue="default">
+                        <option value="defualt" disabled>Please select a room</option>
                         {populateRooms()}
                     </select>
-                    <input type="date" name="startDate" />
-                    <input type="date" name="endDate" />
-                    <input type="text" name="comments" />
-                    <button type="submit">Submit</button>
+                    <input className="form-input" type="date" name="startDate" />
+                    <input className="form-input" type="date" name="endDate" />
+                    <input className="form-input" type="text" name="comments" placeholder="comments"/>
+                    <button className="form-submit" type="submit">Submit</button>
                 </form>
             </section>
         </>

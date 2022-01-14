@@ -1,3 +1,16 @@
+@use "../base/variables.scss" as *;
+
 .form-input {
     padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
+.form-submit {
+    padding: 0.5rem 1rem;
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 800;
 }
