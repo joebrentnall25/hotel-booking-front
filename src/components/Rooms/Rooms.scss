@@ -1,20 +1,11 @@
 @use "../../assets/styles/base/variables.scss" as *;
 
-.users {
+.rooms {
     margin: $general-margin;
     padding: $general-padding;
-    &__title {
-        margin-bottom: 2rem;
-    }
     &__form {
         display: flex;
         flex-direction: column;
         row-gap: $form-gap;
-        margin-bottom: 2rem;
-    }
-    &__select {
-        &-title {
-            margin-bottom: 1rem;
-        }
     }
 }
