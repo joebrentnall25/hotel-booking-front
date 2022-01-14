@@ -1,10 +1,10 @@
 @use "./assets/styles/reset/reset.scss";
 
 .app {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 10fr;
-  grid-area: "app","router","router","router","router","router","router","router","router","router","router";
+  // display: grid;
+  // grid-template-columns: 1fr;
+  // grid-template-rows: 1fr 10fr;
+  // grid-area: "app","router","router","router","router","router","router","router","router","router","router";
   &__nav{
     
   }
