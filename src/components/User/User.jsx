@@ -20,14 +20,14 @@ const User = (props) => {
             },
             body: JSON.stringify(user)
         })
+        .then(getUsers())
         .catch(err => console.log(err))
-        getUsers();
     }
 
     const populateUsers = () => {
         console.log(users);
         return users.map((user, i) => (
-            <option key={user.id} value={user.username}>{user.username}</option>
+            <option key={i} value={i}>{user.username}</option>
         ));
     }
 
@@ -42,14 +42,15 @@ const User = (props) => {
     }
 
     const loginUser = (event) => {
-        setUser(event.target.value)
+        const userObject = users[event.target.value];
+        setUser(userObject)
         console.log(currentUser)
     }
 
     return (
         <>
             <div className="users">
-                <p>{currentUser !== "" ? `Currently logged in as ${currentUser}` : "Please login below"}</p>
+                <p>{currentUser.username !== undefined ? `Currently logged in as ${currentUser.username}` : "Please login below"}</p>
                 <form className="users__form" onSubmit={onSubmit}>
                     <h2 className="users__form-title">Create a new user</h2>
                     <input className="users__form-input form-input" type="text" name="username" placeholder="Username"/>

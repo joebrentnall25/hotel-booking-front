@@ -39,7 +39,7 @@ const Booking = (props) => {
     return (
         <>
             <section className="bookings">
-            <p>{currentUser !== "" ? `Currently logged in as ${currentUser}` : "Please login on the user page"}</p>
+            <p>{currentUser.username !== undefined ? `Currently logged in as ${currentUser.username}` : "Please login on the user page"}</p>
                 <form onSubmit={onSubmit} className="bookings__form">
                     <h2>Create new booking</h2>
                     <select className="form-input" name="roomId" id="" defaultValue="default">

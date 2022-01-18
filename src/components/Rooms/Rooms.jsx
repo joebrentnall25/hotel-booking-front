@@ -11,7 +11,7 @@ const Rooms = (props) => {
         <>
             
             <div className="rooms">
-                <p>{currentUser !== "" ? `Currently logged in as ${currentUser}` : "Please login on the user page"}</p>
+                <p>{currentUser.username !== undefined ? `Currently logged in as ${currentUser.username}` : "Please login on the user page"}</p>
                 <form onSubmit={onCreateRoomSubmit} className="rooms__form">
                     <h2 className="rooms__form-title">Create new room</h2>
                     <input className="form-input" type="number" name="roomNumber" min="0" placeholder="Enter room number"/>

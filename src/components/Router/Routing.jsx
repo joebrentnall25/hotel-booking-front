@@ -5,7 +5,7 @@ import Rooms from "../Rooms/Rooms";
 import Booking from "../Booking/Booking";
 
 const Routing = () => {
-    const [user, setUser] = useState("")
+    const [user, setUser] = useState({})
 
     return (
         <>
