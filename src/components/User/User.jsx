@@ -1,34 +1,47 @@
 import "./User.scss";
 import "../../assets/styles/layout/forms.scss"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const User = (props) => {
-    const {setUser} = props;
-    const [currentUser, setCurrentUser] = useState("");
+    const {setUser, currentUser} = props;
+    const [users, setUsers] = useState([]);
 
-    const users = [
-        {
-            name: "Joe",
-            email: "joe.brentnall25@gmail.com",
-        },
-        {
-            name: "Myles",
-            email: "myles@somewhere.com"
+    const onSubmit = (event) => {
+        event.preventDefault();
+        const user = {
+            username: event.target.username.value,
+            email: event.target.email.value,
+            password: event.target.password.value
         }
-    ]
-
-    const onSubmit = () => {
-        
+        fetch('http://localhost:8080/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .catch(err => console.log(err))
+        getUsers();
     }
 
     const populateUsers = () => {
+        console.log(users);
         return users.map((user, i) => (
-            <option key={i} value={user.name}>{user.name}</option>
+            <option key={user.id} value={user.username}>{user.username}</option>
         ));
     }
 
+    const getUsers = () => {
+        fetch("http://localhost:8080/users")
+            .then(response => response.json())
+            .then(data => {
+                setUsers(data);
+                populateUsers();
+            })
+            .catch(error => console.log(error))
+    }
+
     const loginUser = (event) => {
-        setCurrentUser(event.target.value)
         setUser(event.target.value)
         console.log(currentUser)
     }
@@ -40,7 +53,7 @@ const User = (props) => {
                 <form className="users__form" onSubmit={onSubmit}>
                     <h2 className="users__form-title">Create a new user</h2>
                     <input className="users__form-input form-input" type="text" name="username" placeholder="Username"/>
-                    <input className="users__form-input form-input" type="email" name="email" placeholder="Email" />
+                    <input className="users__form-input form-input" type="email" name="email" placeholder="Email"/>
                     <input className="users__form-input form-input" type="password" name="password" placeholder="Password" />
                     <button className="users__form-submit form-submit" type="submit">Submit</button>
                 </form>

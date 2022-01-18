@@ -10,7 +10,7 @@ const Routing = () => {
     return (
         <>
             <Routes>
-                <Route path="/user" element={<User setUser={setUser}/>}/>
+                <Route path="/user" element={<User setUser={setUser} currentUser={user}/>}/>
                 <Route path="/rooms" element={<Rooms currentUser={user}/>}/>
                 <Route path="/bookings" element={<Booking currentUser={user}/>}/>
             </Routes>
