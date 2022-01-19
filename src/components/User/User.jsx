@@ -6,6 +6,10 @@ const User = (props) => {
     const {setUser, currentUser} = props;
     const [users, setUsers] = useState([]);
 
+    useEffect(() => {
+        getUsers();
+    },[])
+
     const onSubmit = (event) => {
         event.preventDefault();
         const user = {
@@ -24,19 +28,15 @@ const User = (props) => {
         .catch(err => console.log(err))
     }
 
-    const populateUsers = () => {
-        console.log(users);
-        return users.map((user, i) => (
+    const populateUsers = users.map((user, i) => (
             <option key={i} value={i}>{user.username}</option>
         ));
-    }
 
     const getUsers = () => {
         fetch("http://localhost:8080/users")
             .then(response => response.json())
             .then(data => {
                 setUsers(data);
-                populateUsers();
             })
             .catch(error => console.log(error))
     }
@@ -63,7 +63,7 @@ const User = (props) => {
                     <h2 className="users__select-title">Select existing user</h2>
                     <select defaultValue="default" className="form-input" name="user" onChange={loginUser}>
                     <option value="default" disabled>Choose a user.</option>
-                    {populateUsers()}
+                    {populateUsers}
                     </select>  
                 </div>
             </div>
